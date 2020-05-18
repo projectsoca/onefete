@@ -1,0 +1,6 @@
+layout/indicator.axml;layout/indicator.xml
+drawable/indicator_rounded_corners.xml;drawable/indicator_rounded_corners.xml
+drawable/indicator_square_corners.xml;drawable/indicator_square_corners.xml
+values/attr.xml;values/attr.xml
+values/dimens.xml;values/dimens.xml
+values/strings.xml;values/strings.xml

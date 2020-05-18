@@ -1,0 +1,3 @@
+drawable/white_radius.xml;drawable/white_radius.xml
+animator/scale_with_alpha.xml;animator/scale_with_alpha.xml
+values/attrs.xml;values/attrs.xml

@@ -1,0 +1,4 @@
+layout/pausable_progress.axml;layout/pausable_progress.xml
+values/attrs.xml;values/attrs.xml
+values/colors.xml;values/colors.xml
+values/dimens.xml;values/dimens.xml

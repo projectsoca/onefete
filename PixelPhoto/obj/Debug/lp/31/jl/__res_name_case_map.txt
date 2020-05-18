@@ -1,0 +1,6 @@
+drawable-xhdpi/ic_action_add.png;drawable-xhdpi/ic_action_add.png
+drawable-xxhdpi/ic_action_add.png;drawable-xxhdpi/ic_action_add.png
+values/attrs.xml;values/attrs.xml
+values/strings.xml;values/strings.xml
+drawable-hdpi/ic_action_add.png;drawable-hdpi/ic_action_add.png
+drawable-mdpi/ic_action_add.png;drawable-mdpi/ic_action_add.png

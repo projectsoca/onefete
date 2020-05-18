@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018,SEmojis -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="developer.semojis"
+    android:versionCode="3"
+    android:versionName="0.3" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="28" />
+
+</manifest>

@@ -1,0 +1,1 @@
+<resources><declare-styleable name="StoriesProgressView"><attr name="progressCount" format="integer|reference" /></declare-styleable></resources>

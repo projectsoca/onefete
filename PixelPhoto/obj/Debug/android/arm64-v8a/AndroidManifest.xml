@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.onefete.Social" android:installLocation="preferExternal" android:versionCode="400001" android:versionName="1.0">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
+  <uses-feature android:name="android.hardware.camera" />
+  <uses-feature android:name="android.hardware.camera.autofocus" />
+  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.VIBRATE" />
+  <uses-permission android:name="android.permission.public_SYSTEM_WINDOW" />
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" />
+  <uses-permission android:name="com.PixelPhoto.Social.permission.C2D_MESSAGE" />
+  <uses-permission android:name="android.permission.BIND_JOB_SERVICE" />
+  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+  <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+  <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+  <!-- Allow the application to access Google web-based services. -->
+  <permission android:name="com.PixelPhoto.Social.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
+  <permission android:name="com.PixelPhoto.Social.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+  <application android:name="crc641aba8030ec4bf93a.MainApplication" android:allowBackup="false" android:largeHeap="true" android:supportsRtl="@string/Is_arabic" tools:replace="android:supportsRtl" tools:ignore="GoogleAppIndexingWarning" android:icon="@mipmap/icon" android:roundIcon="@mipmap/icon_round" android:theme="@style/MyTheme" android:hardwareAccelerated="true" android:requestLegacyExternalStorage="true" android:label="onefete" android:usesCleartextTraffic="true" android:debuggable="true">
+    <!-- Google Maps /Places API Key -->
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD3v8ed7UPqQNyZJeBI4o0v-saRZq33bQc" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="@string/admob_app_id" />
+    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+    <activity android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+    <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:theme="@style/Base.Theme.AppCompat" />
+    <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="false" />
+    <!-- Facebook login / API Key -->
+    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
+    <activity android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:label="@string/app_name" />
+    <activity android:name="com.facebook.CustomTabActivity" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="@string/fb_login_protocol_scheme" />
+      </intent-filter>
+    </activity>
+    <activity android:name=".HomeActivity" android:theme="@style/MyTheme" android:label="appname">
+      <intent-filter>
+        <data android:scheme="https" android:host="appname" />
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+      </intent-filter>
+    </activity>
+    <receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <category android:name="com.PixelPhoto.Social" />
+      </intent-filter>
+    </receiver>
+    <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.PixelPhoto.Social.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+    </provider>
+    <receiver android:name="crc6426a9e2bd1c5b2325.Methods_LocalNotification_NotificationBroadcasterCloser">
+      <intent-filter>
+        <action android:name="select.notif.id" />
+      </intent-filter>
+    </receiver>
+    <service android:name="crc6426a9e2bd1c5b2325.Methods_LocalNotification_BackgroundRunner" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64a890bb256053fec0.LocalWebViewActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:noHistory="true" android:theme="@style/SplashScreenTheme" android:name="crc64a890bb256053fec0.SplashScreenActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6456149e0b144569aa.HomeActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc645a00ed15060279f9.SuggestionsUsersActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6459d1832c98af07ca.AddStoryActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6459d1832c98af07ca.ViewStoryActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6410bbcb2ee46d4ca6.SettingDeleteAccountActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6410bbcb2ee46d4ca6.SettingGeneralActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6410bbcb2ee46d4ca6.SettingPasswordActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6410bbcb2ee46d4ca6.SettingsUserActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/SettingsTheme" android:name="crc647daeadea14d92eca.SettingPrivacyActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/SettingsTheme" android:name="crc64a2027e58427866fb.SettingNotificationActivity" />
+    <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:launchMode="singleInstance" android:theme="@style/MyTheme" android:name="crc64cdf6bf9f9f7a92f0.VideoFullScreenActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6484e13a9c5f341e8d.AddDataProfileActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc6484e13a9c5f341e8d.EditProfileActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64b81054437c27734a.FundingActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64b81054437c27734a.CreateFundingActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64b81054437c27734a.EditFundingActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64b81054437c27734a.FundingViewActivity" />
+    <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc642e113c14c859c466.EditColorActivity" />
+    <activity android:configChanges="keyboard|keyboardHidden|locale|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc642e113c14c859c466.EditImageActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64e769a05118cab2d8.FirstActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64e769a05118cab2d8.ForgetPasswordActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64e769a05118cab2d8.LoginActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64e769a05118cab2d8.RegisterActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64fcce8b45f9dbe865.LastChatActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64fcce8b45f9dbe865.MessagesBoxActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64fcce8b45f9dbe865.NewChatActivity" />
+    <service android:name="crc64f7686dee5924dd97.ScheduledApiService" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64b1e79c83ad1ddd21.BlockedUsersActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64ba0a71cbe1768fe2.AddPostActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64ba0a71cbe1768fe2.EditPostActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64ba0a71cbe1768fe2.GifActivity" />
+    <activity android:configChanges="locale|orientation|screenSize|uiMode" android:icon="@mipmap/icon" android:theme="@style/MyTheme" android:name="crc64ba0a71cbe1768fe2.MentionActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.onefete.Social.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.com.onefete.Social" />
+      </intent-filter>
+    </receiver>
+    <!--
+         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+         with the application context. This config is merged in with the host app's manifest,
+         but there can only be one provider with the same authority activated at any given
+         point; so if the end user has two or more different apps that use Facebook SDK, only the
+         first one will be able to use the provider. To work around this problem, we use the
+         following placeholder in the authority to identify each host application as if it was
+         a completely different provider.
+        -->
+    <provider android:name="com.facebook.internal.FacebookInitProvider" android:authorities="com.onefete.Social.FacebookInitProvider" android:exported="false" />
+    <receiver android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver" android:exported="false">
+      <intent-filter>
+        <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.facebook.CampaignTrackingReceiver" android:exported="true" android:permission="android.permission.INSTALL_PACKAGES">
+      <intent-filter>
+        <action android:name="com.android.vending.INSTALL_REFERRER" />
+      </intent-filter>
+    </receiver>
+    <!--
+             FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+    <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <activity android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:theme="@style/com_facebook_activity_theme" />
+    <activity android:name="com.facebook.CustomTabMainActivity" />
+    <activity android:name="com.facebook.CustomTabActivity" />
+    <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:exported="false" android:theme="@android:style/Theme.Translucent" />
+    <provider android:name="com.google.android.gms.ads.MobileAdsInitProvider" android:authorities="com.onefete.Social.mobileadsinitprovider" android:exported="false" android:initOrder="100" />
+    <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:authorities="com.onefete.Social.firebaseinitprovider" android:exported="false" android:initOrder="100" />
+    <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false">
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+    </service>
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+      </intent-filter>
+    </receiver>
+    <!--
+             FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+    <service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
+    <activity android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:excludeFromRecents="true" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <!--
+            Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+    <service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:exported="true" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+    <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true" />
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <receiver android:name="com.onesignal.NotificationOpenedReceiver" />
+    <service android:name="com.onesignal.GcmIntentService" />
+    <service android:name="com.onesignal.GcmIntentJobService" android:permission="android.permission.BIND_JOB_SERVICE" />
+    <service android:name="com.onesignal.RestoreJobService" android:permission="android.permission.BIND_JOB_SERVICE" />
+    <service android:name="com.onesignal.RestoreKickoffJobService" android:permission="android.permission.BIND_JOB_SERVICE" />
+    <service android:name="com.onesignal.SyncService" android:stopWithTask="true" />
+    <service android:name="com.onesignal.SyncJobService" android:permission="android.permission.BIND_JOB_SERVICE" />
+    <activity android:name="com.onesignal.PermissionsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <service android:name="com.onesignal.NotificationRestoreService" />
+    <receiver android:name="com.onesignal.BootUpReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+        <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.onesignal.UpgradeReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+      </intent-filter>
+    </receiver>
+  </application>
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+  <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+  <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+  <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+  <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />
+  <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
+  <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+  <uses-permission android:name="android.permission.READ_APP_BADGE" />
+  <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
+  <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+  <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+</manifest>
